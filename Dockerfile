@@ -12,7 +12,7 @@ RUN pip install bash_kernel
 RUN python3 -m bash_kernel.install
 
 #Install for non-specific ONT 
-RUN apt-get install -y unzip seqtk wget build-essential cmake git-all
+RUN apt-get install -y unzip seqtk wget build-essential cmake git-all tar
 
 #Dedicated install to ONT analyses, packed
 RUN apt-get install -y minimap2 sniffles seqtk assemblytics bandage
@@ -26,8 +26,8 @@ RUN pip install NanoPlot
 
 ## MUMMER
 RUN cd /opt
-RUN wget https://github.com/mummer4/mummer/archive/refs/tags/v4.0.0rc1.zip
-RUN unzip v4.0.0rc1.zip
+RUN wget https://github.com/mummer4/mummer/releases/download/v4.0.0rc1/mummer-4.0.0rc1.tar.gz
+RUN tar xvzf v4.0.0rc1.zip
 RUN cd mummer-4.0.0rc1/
 RUN ./configure
 RUN make
