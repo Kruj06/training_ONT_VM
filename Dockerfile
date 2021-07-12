@@ -12,7 +12,7 @@ RUN pip install bash_kernel
 RUN python3 -m bash_kernel.install
 
 #Install for non-specific ONT 
-RUN apt-get install -y unzip seqtk wget build-essential cmake git-all tar
+RUN apt-get install -y unzip seqtk wget build-essential cmake git-all tar gzip
 
 #Dedicated install to ONT analyses, packed
 RUN apt-get install -y minimap2 sniffles seqtk assemblytics bandage
