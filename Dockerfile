@@ -27,7 +27,7 @@ RUN pip install NanoPlot
 ## MUMMER
 RUN cd /opt
 RUN wget https://github.com/mummer4/mummer/releases/download/v4.0.0rc1/mummer-4.0.0rc1.tar.gz
-RUN tar xvzf v4.0.0rc1.zip
+RUN tar xvzf mummer-4.0.0rc1.tar.gz
 RUN cd mummer-4.0.0rc1/
 RUN ./configure
 RUN make
