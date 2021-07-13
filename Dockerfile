@@ -29,7 +29,7 @@ RUN cd /opt
 RUN wget https://github.com/mummer4/mummer/releases/download/v4.0.0rc1/mummer-4.0.0rc1.tar.gz
 RUN tar xvzf mummer-4.0.0rc1.tar.gz
 RUN cd mummer-4.0.0rc1/
-RUN ./configure
+RUN bash configure
 RUN make
 RUN make install
 
