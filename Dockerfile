@@ -20,7 +20,8 @@ RUN conda install -c bioconda raven-assembler
 RUN conda install -c bioconda survivor
 RUN conda install -c bioconda ragtag
 RUN conda install -c bioconda flye
-RUN pip install NanoPlot
+RUN conda install -c bioconda mummer 
+RUN pip install NanoPlot NanoComp
 
 #Dedicated install to ONT analyses, manual
 
@@ -33,21 +34,6 @@ RUN bash configure
 RUN make
 RUN make install
 
-## RACON
-RUN cd /opt
-RUN git clone --recursive https://github.com/lbcb-sci/racon.git racon
-RUN cd racon
-RUN mkdir build
-RUN cd build
-RUN cmake -DCMAKE_BUILD_TYPE=Release ..
-RUN make
-RUN make install
-
-## RaGOO
-RUN cd /opt
-RUN git clone https://github.com/malonge/RaGOO.git
-RUN cd RaGOO
-RUN python3 setup.py install
 
 ## Assembly-Stats
 RUN cd /opt
