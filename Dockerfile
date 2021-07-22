@@ -25,12 +25,13 @@ RUN pip install NanoPlot NanoComp
 
 #Dedicated install to ONT analyses, manual
 
-## MUMMER
+## RACON
 RUN cd /opt
-RUN wget https://github.com/mummer4/mummer/releases/download/v4.0.0rc1/mummer-4.0.0rc1.tar.gz
-RUN tar xvzf mummer-4.0.0rc1.tar.gz
-RUN cd mummer-4.0.0rc1/
-RUN bash configure
+RUN git clone --recursive https://github.com/lbcb-sci/racon.git racon
+RUN cd racon
+RUN mkdir build
+RUN cd build
+RUN cmake -DCMAKE_BUILD_TYPE=Release ..
 RUN make
 RUN make install
 
