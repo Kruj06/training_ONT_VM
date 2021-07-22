@@ -21,29 +21,10 @@ RUN conda install -c bioconda survivor
 RUN conda install -c bioconda ragtag
 RUN conda install -c bioconda flye
 RUN conda install -c bioconda mummer 
+RUN conda install -c bioconda racon 
+RUN conda install -c bioconda assembly-stats 
 RUN pip install NanoPlot NanoComp
 
-#Dedicated install to ONT analyses, manual
 
-## RACON
-RUN cd /opt
-RUN git clone --recursive https://github.com/lbcb-sci/racon.git racon
-RUN cd racon
-RUN mkdir build
-RUN cd build
-RUN cmake -DCMAKE_BUILD_TYPE=Release ..
-RUN make
-RUN make install
-
-
-## Assembly-Stats
-RUN cd /opt
-RUN git clone https://github.com/sanger-pathogens/assembly-stats.git
-RUN cd assembly-stats
-RUN mkdir build
-RUN cd build
-RUN cmake ..
-RUN make
-RUN make install
 
 
