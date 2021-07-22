@@ -22,6 +22,7 @@ Main jupyter stacks are:
 * [Jupyter notebook/lab](https://jupyter.org)
 * [seqtk](https://github.com/lh3/seqtk)
 * [NanoPlot](https://github.com/wdecoster/NanoPlot)
+* [NanoComp](https://github.com/wdecoster/nanocomp)
 * [Minimap2](https://github.com/lh3/minimap2)
 * [Sniffles](https://github.com/fritzsedlazeck/Sniffles)
 * [SURVIVOR](https://github.com/fritzsedlazeck/SURVIVOR/)
