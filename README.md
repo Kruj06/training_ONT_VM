@@ -1,4 +1,4 @@
-# App NGSanalysisJupyter: Biosphere BASE environment for NGS analysis using Jupyter
+# App TrainingONT: Biosphere BASE environment for ONT analysis using Jupyter
 
 ## Description
 
