@@ -24,7 +24,7 @@ RUN conda install -c bioconda mummer
 RUN conda install -c bioconda racon 
 RUN conda install -c bioconda assembly-stats 
 RUN pip install NanoPlot NanoComp
-
-
-
+RUN conda install -c bioconda medaka=1.4.1 -n medaka
+RUN conda install -c biocondaquast=5.0.2 -n quast
+RUN conda install -c bioconda blobtools -n blobtools
 
