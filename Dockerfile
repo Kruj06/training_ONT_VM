@@ -16,6 +16,7 @@ RUN apt-get install -y unzip seqtk wget build-essential cmake git-all tar gzip
 
 #Dedicated install to ONT analyses, packed
 RUN apt-get install -y minimap2 sniffles seqtk assemblytics bandage
+
 RUN conda install -c bioconda raven-assembler
 RUN conda install -c bioconda survivor
 RUN conda install -c bioconda ragtag
@@ -23,8 +24,9 @@ RUN conda install -c bioconda flye
 RUN conda install -c bioconda mummer 
 RUN conda install -c bioconda racon 
 RUN conda install -c bioconda assembly-stats 
-RUN pip install NanoPlot NanoComp
+RUN conda install -c bioconda nanoplot
 RUN conda install -c bioconda medaka=1.4.1 -n medaka
-RUN conda install -c biocondaquast=5.0.2 -n quast
+RUN conda install -c bioconda quast=5.0.2 -n quast
 RUN conda install -c bioconda blobtools -n blobtools
 
+RUN pip install NanoComp
