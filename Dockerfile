@@ -5,6 +5,7 @@ USER root
 RUN apt update
 RUN apt install -y python3-pyqt5 pyqt5-dev-tools qttools5-dev-tools
 RUN pip install PyQt5 ete3 owlready2 pyproteinsExt ipympl jupyterlab
+ENV JUPYTER_ENABLE_LAB=yes
 
 
 #Adding dedicated kernel
