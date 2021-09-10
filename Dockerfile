@@ -5,19 +5,21 @@ USER root
 RUN apt update
 RUN apt install -y python3-pyqt5 pyqt5-dev-tools qttools5-dev-tools
 RUN pip install PyQt5 ete3 owlready2 pyproteinsExt ipympl jupyterlab
-ENV JUPYTER_ENABLE_LAB=yes
-
 
 #Adding dedicated kernel
+RUN python3 -m pip install --upgrade ipython
 RUN python3 -m pip install bash_kernel
 RUN python3 -m bash_kernel.install
+
+ENV JUPYTER_ENABLE_LAB=yes
 
 #Install for non-specific ONT 
 RUN apt install -y unzip seqtk wget build-essential cmake git-all tar gzip
 
 #Dedicated install to ONT analyses, packed
 RUN apt install -y minimap2 sniffles seqtk assemblytics bandage
-
+RUN conda install -c bioconda nanocomp
+RUN conda create -n medaka -c conda-forge -c bioconda medaka
 RUN conda install -c bioconda raven-assembler
 RUN conda install -c bioconda survivor
 RUN conda install -c bioconda ragtag
@@ -30,4 +32,3 @@ RUN conda install -c bioconda python=3.7 quast
 RUN conda install -c bioconda blobtools
 RUN conda install -c bioconda kraken2 
 
-RUN pip install NanoComp medaka
