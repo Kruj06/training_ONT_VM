@@ -19,7 +19,7 @@ RUN apt install -y unzip wget build-essential cmake git-all tar gzip
 
 #Dedicated install to ONT analyses, packed
 RUN apt install -y minimap2 sniffles seqtk assemblytics bandage
-RUN conda create -n medaka -c conda-forge -c bioconda medaka
+RUN conda create -n medaka -c conda-forge -c bioconda python=3.6 medaka
 RUN conda create -n raven -c bioconda raven-assembler
 RUN conda create -n survivor -c bioconda survivor
 RUN conda create -n ragtag -c bioconda ragtag
