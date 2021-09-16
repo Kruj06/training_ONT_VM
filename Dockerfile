@@ -18,16 +18,17 @@ ENV JUPYTER_ENABLE_LAB=yes
 RUN apt install -y unzip wget build-essential cmake git-all tar gzip
 
 #Dedicated install to ONT analyses, packed
-RUN apt install -y minimap2 sniffles seqtk assemblytics bandage
+RUN apt install -y minimap2 sniffles seqtk assemblytics bandage samtools ncbi-blast+ bwa
 RUN conda create -n medaka -c conda-forge -c bioconda python=3.6 medaka
 RUN conda create -n raven -c bioconda raven-assembler
 RUN conda create -n survivor -c bioconda survivor
 RUN conda create -n ragtag -c bioconda ragtag
 RUN conda create -n flye -c bioconda flye
-RUN conda create -n mummer -c bioconda mummer 
+RUN conda create -n mummer -c bioconda mummer
 RUN conda create -n racon -c bioconda racon 
 RUN conda create -n assembly-stats -c bioconda assembly-stats 
 RUN conda create -n quast -c bioconda python=3.7 quast
 RUN conda create -n blobtools -c bioconda blobtools
 RUN conda create -n nanocomp -c bioconda python=3.7 pysam nanocomp nanoplot
+RUN conda create -n busco -c conda-forge -c bioconda r-plyr busco=5.1.3
 
