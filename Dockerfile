@@ -31,4 +31,4 @@ RUN conda create -n quast -c bioconda python=3.7 quast
 RUN conda create -n blobtools -c bioconda blobtools
 RUN conda create -n nanocomp -c bioconda python=3.7 pysam nanocomp nanoplot
 RUN conda create -n busco -c conda-forge -c bioconda r-plyr busco=5.1.3
-
+RUN conda create -n diamond -c conda-forge -c bioconda diamond
