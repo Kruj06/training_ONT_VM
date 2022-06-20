@@ -2,16 +2,19 @@
 # with pip modules ('pip install ...') and their system dependancies ('apt-get install -y ...')
 FROM jupyter/datascience-notebook
 USER root
-RUN apt-get update
-RUN apt-get install -y python3-pyqt5 pyqt5-dev-tools qttools5-dev-tools
+RUN apt update
+RUN apt install -y python3-all-dev python3-pip python3-venv
+RUN apt install -y python3-pyqt5 pyqt5-dev-tools qttools5-dev-tools
 RUN pip install PyQt5 ete3 owlready2 pyproteinsExt ipympl jupyterlab
 
-
 #Adding dedicated kernel
-RUN pip install bash_kernel
+RUN python3 -m pip install --upgrade ipython
+RUN python3 -m pip install bash_kernel
 RUN python3 -m bash_kernel.install
 
-#Install for non-specific ONT 
+ENV JUPYTER_ENABLE_LAB=yes
+
+#Non essential version
 RUN apt-get install -y unzip wget build-essential cmake git-all tar gzip curl
 
 #Dedicated install to SV analyses, packed
@@ -38,5 +41,4 @@ RUN cd /opt && git clone --recursive https://github.com/genome/breakdancer.git
 RUN cd /opt/breakdancer && mkdir build
 RUN cd /opt/breakdancer/build && cmake .. -DCMAKE_BUILD_TYPE=release -DCMAKE_INSTALL_PREFIX=/usr/local
 RUN cd /opt/breakdancer/build && make && make install
-
 
