@@ -21,21 +21,19 @@ Main jupyter stacks are:
 
 * [Jupyter notebook/lab](https://jupyter.org)
 * [seqtk](https://github.com/lh3/seqtk)
+* [Guppy-cpu](https://community.nanoporetech.com/downloads)
+* [Porechop] (https://github.com/rrwick/Porechop)
 * [NanoPlot](https://github.com/wdecoster/NanoPlot)
 * [NanoComp](https://github.com/wdecoster/nanocomp)
 * [Minimap2](https://github.com/lh3/minimap2)
-* [Sniffles](https://github.com/fritzsedlazeck/Sniffles)
-* [SURVIVOR](https://github.com/fritzsedlazeck/SURVIVOR/)
-* [Raven](https://github.com/lbcb-sci/raven)
+* [bwa-mem2](https://github.com/bwa-mem2/bwa-mem2)
+* [Diamond](https://github.com/bbuchfink/diamond)
 * [Flye](https://github.com/fenderglass/Flye)
-* [RagTag](https://github.com/malonge/RagTag)
-* [Racon](https://github.com/isovic/racon)
 * [Assemblytics](http://assemblytics.com/)
-* [Bandage](https://github.com/rrwick/Bandage)
 * [Mummer](https://github.com/mummer4/mummer)
 * [Assembly-Stats](https://github.com/sanger-pathogens/assembly-stats)
-
-
+* [Kaiju](https://github.com/bioinformatics-centre/kaiju)
+* [Assembly-Stats](https://github.com/sanger-pathogens/assembly-stats)
 
 
 ## Contact
@@ -47,6 +45,7 @@ Main jupyter stacks are:
 * Francois Sabot [SouthGreen Platform](https://southgreen.fr)
 * Julie Orjuela-Bouniol [SouthGreen Platform](https://southgreen.fr)
 * Gauthier Sarah [SouthGreen Platform](https://southgreen.fr)
+* Aurore Comte [SouthGreen Platform](https://southgreen.fr)
 
 ## App data
 
