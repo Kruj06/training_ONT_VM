@@ -22,7 +22,7 @@ Main jupyter stacks are:
 * [Jupyter notebook/lab](https://jupyter.org)
 * [seqtk](https://github.com/lh3/seqtk)
 * [Guppy-cpu](https://community.nanoporetech.com/downloads)
-* [Porechop] (https://github.com/rrwick/Porechop)
+* [Porechop](https://github.com/rrwick/Porechop)
 * [NanoPlot](https://github.com/wdecoster/NanoPlot)
 * [NanoComp](https://github.com/wdecoster/nanocomp)
 * [Minimap2](https://github.com/lh3/minimap2)
