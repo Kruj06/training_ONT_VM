@@ -2,26 +2,30 @@
 # with pip modules ('pip install ...') and their system dependancies ('apt-get install -y ...')
 FROM jupyter/datascience-notebook
 USER root
-RUN apt update
-RUN apt install -y python3-pyqt5 pyqt5-dev-tools qttools5-dev-tools
-RUN pip install PyQt5 ete3 owlready2 pyproteinsExt ipympl jupyterlab
 
-#Adding dedicated kernel
+RUN apt-get update -y
+
+RUN apt-get install -y python3-pyqt5 pyqt5-dev-tools qttools5-dev-tools
+RUN apt-get install -y unzip wget build-essential cmake git-all tar gzip
+RUN apt-get install -y minimap2 seqtk samtools bedtools vcftools bcftools assemblytics bandage
+
+
+RUN wget -O- https://mirror.oxfordnanoportal.com/apt/ont-repo.pub | apt-key add -
+RUN echo 'deb http://mirror.oxfordnanoportal.com/apt focal-stable non-free' | tee /etc/apt/sources.list.d/nanoporetech.sources.list
+RUN apt-get update
+
+RUN apt-get install -y ont-guppy-cpu
+
+ENV JUPYTER_ENABLE_LAB=yes
+
+RUN python3 -m pip install matplotlib pandas
+RUN python3 -m pip install PyQt5 ete3 owlready2 pyproteinsExt ipympl jupyterlab
 RUN python3 -m pip install --upgrade ipython
 RUN python3 -m pip install bash_kernel
 RUN python3 -m bash_kernel.install
 
-ENV JUPYTER_ENABLE_LAB=yes
-
-#Install for non-specific ONT 
-RUN apt install -y unzip seqtk wget build-essential cmake git-all tar gzip
-
-#Dedicated install to ONT analyses, packed
-RUN apt install -y minimap2 seqtk samtools bedtools vcftools bcftools assemblytics bandage
-RUN python3 -m pip install matplotlib pandas
-
 RUN conda install -c bioconda nanocomp
-RUN conda create -n medaka -c conda-forge -c bioconda medaka
+#RUN conda install -c conda-forge -c bioconda medaka
 RUN conda install -c bioconda raven-assembler
 RUN conda install -c bioconda ragtag
 RUN conda install -c bioconda flye
