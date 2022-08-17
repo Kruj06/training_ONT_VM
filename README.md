@@ -1,21 +1,15 @@
-# App TrainingONT: Biosphere BASE environment for ONT analysis using Jupyter
+# App TrainingONT: Biosphere BASE environment for the cours "Introduction to Minion data analysis for viral metagenome"
 
 ## Description
 
-The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.
+Methods for sequencing complete genomes such as microorganisms, plant, including pathogens, are evolving with so-called "third generation sequencing" methods. In particular, Oxford Nanopore Technology (ONT) offers small-sized sequencers equipment that allow for easy use in several research laboratories, especially in the African developing countries.  This booming technology makes it possible to meet the high demand for sequencing, in many fields: medical, environmental, animal, plant...
 
- This IFB cloud appliance provides both the Jupyter Notebook and Lab environment (see [explanations](https://jupyter.org/index.html)). Biosphere's users can switch these environments simply by changing the relative URL of the service from '/tree' to '/lab'.
+Université Joseph Ki-Zerbo and its partners (LMI Patho Bios, CIRAD, IRD, INERA) are organising this training for scientists and students from West Africa. This training will enable them to take advantage of these new technologies to meet the challenges they face on pathogen issues.
 
-This Jupyter app is based on the Jupyter Docker Stacks (see [details](https://jupyter-docker-stacks.readthedocs.io)). By default, this Biosphere app uses the stack `jupyter/datascience-notebook` but users can choose any other existing stack with an Advanced deployment in Biosphere portal.
+In this cours, we want to know how diverse the pineapple metavirome is. For that we will use taxonomic assignment of nanopore reads and assembly methods.
 
-Main jupyter stacks are:
-- `jupyter/minimal-notebook`: Minimally-functional Jupyter Notebook server, Miniconda Python 3.x, Pandoc and TeX Live for notebook document conversion
-- `jupyter/r-notebook`: Everything in jupyter/minimal-notebook and popular packages from the R ecosystem.
-- `jupyter/scipy-notebook`: Everything in jupyter/minimal-notebook and popular packages from the scientific Python ecosystem.
-- `jupyter/datascience-notebook`: Everything in the jupyter/scipy-notebook and jupyter/r-notebook images, plus libraries for data analysis from the Julia, Python, and R communities.
-- `jupyter/tensorflow-notebook`: Everything in jupyter/scipy-notebook and popular Python deep learning libraries.
+This cours will be done using Jupyter Notebook, an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. IFB cloud appliance provides both the Jupyter Notebook and Lab environment (see [explanations](https://jupyter.org/index.html)).
 
-*See a detailed list of available Jupyter stacks [there](https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html).*
 
 ## Tools
 
@@ -29,12 +23,20 @@ Main jupyter stacks are:
 * [bwa-mem2](https://github.com/bwa-mem2/bwa-mem2)
 * [Diamond](https://github.com/bbuchfink/diamond)
 * [Flye](https://github.com/fenderglass/Flye)
-* [Assemblytics](http://assemblytics.com/)
+* [spades](https://github.com/ablab/spades)
+* [raven-assembler](https://github.com/lbcb-sci/raven)
+* [racon](https://github.com/isovic/racon)
+* [medaka](https://github.com/nanoporetech/medaka)
+* [ragtag](https://github.com/malonge/RagTag)
+* [quast](https://github.com/ablab/quast)
+* [checkv](https://bitbucket.org/berkeleylab/checkv/src/master/)
 * [Mummer](https://github.com/mummer4/mummer)
 * [Assembly-Stats](https://github.com/sanger-pathogens/assembly-stats)
 * [Kaiju](https://github.com/bioinformatics-centre/kaiju)
-* [Assembly-Stats](https://github.com/sanger-pathogens/assembly-stats)
-
+* [blobtools](https://github.com/DRL/blobtools)
+* [kraken2](https://github.com/DerrickWood/kraken2)
+* [sourmash](https://github.com/sourmash-bio/sourmash)
+* [kaiju](https://github.com/bioinformatics-centre/kaiju)
 
 ## Contact
 
@@ -42,10 +44,8 @@ Main jupyter stacks are:
 
 ## Developpers
 
-* Francois Sabot [SouthGreen Platform](https://southgreen.fr)
-* Julie Orjuela-Bouniol [SouthGreen Platform](https://southgreen.fr)
-* Gauthier Sarah [SouthGreen Platform](https://southgreen.fr)
 * Aurore Comte [SouthGreen Platform](https://southgreen.fr)
+* Julie Orjuela-Bouniol [SouthGreen Platform](https://southgreen.fr)
 
 ## App data
 
