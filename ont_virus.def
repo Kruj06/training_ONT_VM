@@ -1,0 +1,138 @@
+Bootstrap: docker
+From: ubuntu:20.04
+
+%labels
+MAINTAINER Julie Orjuela (UMR DIADE IRD), Aurore Comte (UMR PHIM IRD)
+version="1.0"
+
+%environment
+export PATH="${PATH}:/usr/local/miniconda/miniconda3/envs/:/usr/local/miniconda/miniconda3/envs/assembly-stats/bin:/usr/local/miniconda/miniconda3/envs/blobtools/bin:/usr/local/miniconda/miniconda3/envs/flye/bin:/usr/local/miniconda/miniconda3/envs/kraken2/bin:/usr/local/miniconda/miniconda3/envs/mummer/bin:/usr/local/miniconda/miniconda3/envs/nanoplot/bin:/usr/local/miniconda/miniconda3/envs/quast/bin:/usr/local/miniconda/miniconda3/envs/ragtag/bin:/usr/local/miniconda/miniconda3/envs/sourmash/bin:/usr/local/miniconda/miniconda3/envs/blast/bin:/usr/local/miniconda/miniconda3/envs/diamond/bin:/usr/local/miniconda/miniconda3/envs/kaiju/bin:/usr/local/miniconda/miniconda3/envs/krona/bin:/usr/local/miniconda/miniconda3/envs/nanocomp/bin:/usr/local/miniconda/miniconda3/envs/porechop/bin:/usr/local/miniconda/miniconda3/envs/racon/bin:/usr/local/miniconda/miniconda3/envs/raven-assembler/bin:/usr/local/miniconda/miniconda3/envs/spades/bin:/usr/local/miniconda/miniconda3/envs/checkv/bin:/usr/local/miniconda/miniconda3/envs/medaka/bin"
+
+export CONDARC="/.condarc"
+export LC_ALL=C
+
+%post
+apt update -y
+
+export DEBIAN_FRONTEND=noninteractive
+ln -fs /usr/share/zoneinfo/Europe/Paris /etc/localtime
+apt install -y tzdata
+dpkg-reconfigure --frontend noninteractive tzdata
+
+apt-get install -y apt-utils python3-pyqt5 pyqt5-dev-tools qttools5-dev-tools gnupg2 curl
+apt-get install -y unzip wget  libcurl4 build-essential cmake git-all tar gzip
+apt-get install -y minimap2 seqtk samtools bedtools vcftools bcftools assemblytics bandage
+
+# Dedicated install to ONT analyses, unpacked
+mkdir -p /opt/
+
+wget -O- https://mirror.oxfordnanoportal.com/apt/ont-repo.pub | apt-key add -
+echo 'deb http://mirror.oxfordnanoportal.com/apt focal-stable non-free' | tee /etc/apt/sources.list.d/nanoporetech.sources.list
+apt-get update
+apt-get install -y ont-guppy-cpu
+
+## bwa mem2
+mkdir -p /opt/bwa-mem2
+cd /opt/bwa-mem2 && curl -L https://github.com/bwa-mem2/bwa-mem2/releases/download/v2.0pre2/bwa-mem2-2.0pre2_x64-linux.tar.bz2 | tar jxf -
+ln -s /opt/bwa-mem2/bwa-mem2-2.0pre2_x64-linux/bwa-mem2.avx2 /usr/bin/bwa-mem2
+
+apt-get clean
+
+mkdir /usr/local/miniconda && cd /usr/local/miniconda
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+chmod +x Miniconda3-latest-Linux-x86_64.sh
+./Miniconda3-latest-Linux-x86_64.sh -b -p /usr/local/miniconda/miniconda3 && rm Miniconda3-latest-Linux-x86_64.sh
+cd /usr/local/miniconda/miniconda3/bin
+export PATH="/usr/local/miniconda/miniconda3/bin:$PATH" >> $SINGULARITY_ENVIRONMENT
+
+
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+
+conda update --all --yes
+
+conda create -n flye --no-default-packages
+conda install flye=2.9 -n flye
+conda clean --all --yes
+
+conda create -n nanocomp --no-default-packages
+conda install nanocomp -n nanocomp
+conda clean --all --yes
+
+conda create -n raven-assembler --no-default-packages
+conda install raven-assembler -n raven-assembler
+conda clean --all --yes
+
+conda create -n ragtag --no-default-packages
+conda install ragtag -n ragtag
+conda clean --all --yes
+
+conda create -n mummer --no-default-packages
+conda install mummer -n mummer
+conda clean --all --yes
+
+conda create -n racon --no-default-packages
+conda install racon -n racon
+conda clean --all --yes
+
+conda create -n assembly-stats --no-default-packages
+conda install assembly-stats -n assembly-stats
+conda clean --all --yes
+
+conda create -n nanoplot --no-default-packages
+conda install nanoplot -n nanoplot
+conda clean --all --yes
+
+conda create -n quast --no-default-packages
+conda install python=3.7 quast -n quast
+conda clean --all --yes
+
+conda create -n blobtools --no-default-packages
+conda install blobtools -n blobtools
+conda clean --all --yes
+
+conda create -n kraken2 --no-default-packages
+conda install kraken2 -n kraken2
+conda clean --all --yes
+
+conda create -n porechop --no-default-packages
+conda install porechop -n porechop
+conda clean --all --yes
+
+conda create -n diamond --no-default-packages
+conda install diamond -n diamond
+conda clean --all --yes
+
+conda create -n blast --no-default-packages
+conda install blast -n blast
+conda clean --all --yes
+
+conda create -n sourmash --no-default-packages
+conda install sourmash -n sourmash
+conda clean --all --yes
+
+conda create -n kaiju --no-default-packages
+conda install kaiju -n kaiju
+conda clean --all --yes
+
+conda create -n krona --no-default-packages
+conda install krona -n krona
+conda clean --all --yes
+
+conda create -n spades --no-default-packages
+conda install spades -n spades
+conda clean --all --yes
+
+conda create -n checkv --no-default-packages
+conda install checkv -n checkv
+conda clean --all --yes
+
+
+conda create -n medaka --no-default-packages
+conda install medaka -n medaka
+conda clean --all --yes
+
+%runscript
+exec /bin/bash "$@"
+
