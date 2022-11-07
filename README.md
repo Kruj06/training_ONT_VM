@@ -1,52 +1,46 @@
-# App TrainingONT: Biosphere BASE environment for ONT analysis using Jupyter
+# App TrainingONT: Biosphere BASE environment for "Introduction to Oxford Nanopore data analysis" training
 
 ## Description
 
-The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.
+Assembly a genome using long reads from either Oxford Nanopore Technologies or Pacific Biosciences allow solve repeats and structural variants in genome of different organisms. Such technologies provide assemblies that are increased in contiguity and accuracy. This VM is used in SouthGreen training on Oxford Nanopore Technologies data, for assembly, QC and SV detection.
 
- This IFB cloud appliance provides both the Jupyter Notebook and Lab environment (see [explanations](https://jupyter.org/index.html)). Biosphere's users can switch these environments simply by changing the relative URL of the service from '/tree' to '/lab'.
+This training is explained using Jupyter Notebook, an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. IFB cloud appliance provides both the Jupyter Notebook and Lab environment (see [explanations](https://jupyter.org/index.html)).
 
-This Jupyter app is based on the Jupyter Docker Stacks (see [details](https://jupyter-docker-stacks.readthedocs.io)). By default, this Biosphere app uses the stack `jupyter/datascience-notebook` but users can choose any other existing stack with an Advanced deployment in Biosphere portal.
+### version 
 
-Main jupyter stacks are:
-- `jupyter/minimal-notebook`: Minimally-functional Jupyter Notebook server, Miniconda Python 3.x, Pandoc and TeX Live for notebook document conversion
-- `jupyter/r-notebook`: Everything in jupyter/minimal-notebook and popular packages from the R ecosystem.
-- `jupyter/scipy-notebook`: Everything in jupyter/minimal-notebook and popular packages from the scientific Python ecosystem.
-- `jupyter/datascience-notebook`: Everything in the jupyter/scipy-notebook and jupyter/r-notebook images, plus libraries for data analysis from the Julia, Python, and R communities.
-- `jupyter/tensorflow-notebook`: Everything in jupyter/scipy-notebook and popular Python deep learning libraries.
-
-*See a detailed list of available Jupyter stacks [there](https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html).*
+2022-Rabat
 
 ## Tools
 
 * [Jupyter notebook/lab](https://jupyter.org)
 * [seqtk](https://github.com/lh3/seqtk)
+* [Guppy-cpu](https://community.nanoporetech.com/downloads)
 * [NanoPlot](https://github.com/wdecoster/NanoPlot)
 * [NanoComp](https://github.com/wdecoster/nanocomp)
 * [Minimap2](https://github.com/lh3/minimap2)
-* [Sniffles](https://github.com/fritzsedlazeck/Sniffles)
-* [SURVIVOR](https://github.com/fritzsedlazeck/SURVIVOR/)
-* [Raven](https://github.com/lbcb-sci/raven)
+* [Diamond](https://github.com/bbuchfink/diamond)
 * [Flye](https://github.com/fenderglass/Flye)
-* [RagTag](https://github.com/malonge/RagTag)
-* [Racon](https://github.com/isovic/racon)
-* [Assemblytics](http://assemblytics.com/)
-* [Bandage](https://github.com/rrwick/Bandage)
+* [raven-assembler](https://github.com/lbcb-sci/raven)
+* [racon](https://github.com/isovic/racon)
+* [medaka](https://github.com/nanoporetech/medaka)
+* [ragtag](https://github.com/malonge/RagTag)
+* [quast](https://github.com/ablab/quast)
 * [Mummer](https://github.com/mummer4/mummer)
 * [Assembly-Stats](https://github.com/sanger-pathogens/assembly-stats)
-
-
-
+* [blobtools](https://github.com/DRL/blobtools)
+* [Bandage](https://github.com/rrwick/Bandage)
+* [Sniffles](https://github.com/fritzsedlazeck/Sniffles)
 
 ## Contact
 
 * [Support Cloud IFB](mailto:biosphere-support@genouest.org) 
 
-## Developpers
+## Developers
 
-* Francois Sabot [SouthGreen Platform](https://southgreen.fr)
-* Julie Orjuela-Bouniol [SouthGreen Platform](https://southgreen.fr)
-* Gauthier Sarah [SouthGreen Platform](https://southgreen.fr)
+* Julie Orjuela-Bouniol IRD [SouthGreen Platform](https://southgreen.fr)
+* Francois Sabot IRD [SouthGreen Platform](https://southgreen.fr)
+* Gauthier Sarah INRAe [SouthGreen Platform](https://southgreen.fr)
+* Aurore Comte IRD [SouthGreen Platform](https://southgreen.fr)
 
 ## App data
 
