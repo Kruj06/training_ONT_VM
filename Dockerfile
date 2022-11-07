@@ -17,7 +17,7 @@ RUN apt-get install -y ont-guppy-cpu
 ENV JUPYTER_ENABLE_LAB=yes
 ENV PYTHONPATH="/usr/bin/python3.8"
 
-RUN python3 -m pip install matplotlib pandas
+RUN python3 -m pip install matplotlib pandas sniffles
 RUN python3 -m pip install PyQt5 ete3 owlready2 pyproteinsExt ipympl jupyterlab
 RUN python3 -m pip install --upgrade ipython
 RUN python3 -m pip install bash_kernel
@@ -109,9 +109,12 @@ RUN conda clean --all --yes
 #RUN conda install checkv -n checkv
 #RUN conda clean --all --yes
 
+RUN conda create -n syri_env --no-default-packages
+RUN conda install syri -n syri_env
+RUN conda clean --all --yes
 
 #ENV PATH="${PATH}:/opt/conda/envs/:/opt/conda/envs/assembly-stats/bin:/opt/conda/envs/blobtools/bin:/opt/conda/envs/flye/bin:/opt/conda/envs/kraken2/bin:/opt/conda/envs/mummer4/bin:/opt/conda/envs/nanoplot/bin:/opt/conda/envs/quast/bin:/opt/conda/envs/ragtag/bin:/opt/conda/envs/sourmash/bin:/opt/conda/envs/blast/bin:/opt/conda/envs/diamond/bin:/opt/conda/envs/kaiju/bin:/opt/conda/envs/krona/bin:/opt/conda/envs/nanocomp/bin:/opt/conda/envs/porechop/bin:/opt/conda/envs/racon/bin:/opt/conda/envs/raven-assembler/bin:/opt/conda/envs/spades/bin:/opt/conda/envs/checkv/bin:/opt/conda/envs/medaka/bin"
-ENV PATH="${PATH}:/opt/conda/envs/:/opt/conda/envs/assembly-stats/bin:/opt/conda/envs/blobtools/bin:/opt/conda/envs/flye/bin:/opt/conda/envs/mummer4/bin:/opt/conda/envs/nanoplot/bin:/opt/conda/envs/quast/bin:/opt/conda/envs/ragtag/bin:/opt/conda/envs/diamond/bin:/opt/conda/envs/nanocomp/bin:/opt/conda/envs/racon/bin:/opt/conda/envs/raven-assembler/bin:/opt/conda/envs/medaka/bin"
+ENV PATH="${PATH}:/opt/conda/envs/:/opt/conda/envs/assembly-stats/bin:/opt/conda/envs/blobtools/bin:/opt/conda/envs/flye/bin:/opt/conda/envs/mummer4/bin:/opt/conda/envs/nanoplot/bin:/opt/conda/envs/quast/bin:/opt/conda/envs/ragtag/bin:/opt/conda/envs/diamond/bin:/opt/conda/envs/nanocomp/bin:/opt/conda/envs/racon/bin:/opt/conda/envs/raven-assembler/bin:/opt/conda/envs/medaka/bin:/opt/conda/envs/syri_env/bin"
 
 
 #Dedicated install to ONT analyses, unpacked
