@@ -24,6 +24,7 @@ RUN python3 -m pip install bash_kernel
 RUN python3 -m bash_kernel.install
 
 RUN conda update --all --yes
+
 RUN conda config --add channels defaults
 RUN conda config --add channels bioconda
 RUN conda config --add channels conda-forge
@@ -80,41 +81,43 @@ RUN conda create -n diamond --no-default-packages
 RUN conda install diamond -n diamond
 RUN conda clean --all --yes
 
-RUN conda create -n blast --no-default-packages
-RUN conda install blast -n blast
-RUN conda clean --all --yes
-
-RUN conda create -n sourmash --no-default-packages
-RUN conda install sourmash -n sourmash
-RUN conda clean --all --yes
-
-RUN conda create -n kaiju --no-default-packages
-RUN conda install kaiju -n kaiju
-RUN conda clean --all --yes
-
-RUN conda create -n krona --no-default-packages
-RUN conda install krona -n krona
-RUN conda clean --all --yes
-
-RUN conda create -n spades --no-default-packages
-RUN conda install spades -n spades
-RUN conda clean --all --yes
-
-RUN conda create -n checkv --no-default-packages
-RUN conda install checkv -n checkv
-RUN conda clean --all --yes
-
 RUN conda create -n medaka --no-default-packages
 RUN conda install medaka -n medaka
 RUN conda clean --all --yes
 
+#RUN conda create -n blast --no-default-packages
+#RUN conda install blast -n blast
+#RUN conda clean --all --yes
 
-ENV PATH="${PATH}:/opt/conda/envs/:/opt/conda/envs/assembly-stats/bin:/opt/conda/envs/blobtools/bin:/opt/conda/envs/flye/bin:/opt/conda/envs/kraken2/bin:/opt/conda/envs/mummer4/bin:/opt/conda/envs/nanoplot/bin:/opt/conda/envs/quast/bin:/opt/conda/envs/ragtag/bin:/opt/conda/envs/sourmash/bin:/opt/conda/envs/blast/bin:/opt/conda/envs/diamond/bin:/opt/conda/envs/kaiju/bin:/opt/conda/envs/krona/bin:/opt/conda/envs/nanocomp/bin:/opt/conda/envs/porechop/bin:/opt/conda/envs/racon/bin:/opt/conda/envs/raven-assembler/bin:/opt/conda/envs/spades/bin:/opt/conda/envs/checkv/bin:/opt/conda/envs/medaka/bin"
+#RUN conda create -n sourmash --no-default-packages
+#RUN conda install sourmash -n sourmash
+#RUN conda clean --all --yes
+
+#RUN conda create -n kaiju --no-default-packages
+#RUN conda install kaiju -n kaiju
+#RUN conda clean --all --yes
+
+#RUN conda create -n krona --no-default-packages
+#RUN conda install krona -n krona
+#RUN conda clean --all --yes
+
+#RUN conda create -n spades --no-default-packages
+#RUN conda install spades -n spades
+#RUN conda clean --all --yes
+
+#RUN conda create -n checkv --no-default-packages
+#RUN conda install checkv -n checkv
+#RUN conda clean --all --yes
+
+
+#ENV PATH="${PATH}:/opt/conda/envs/:/opt/conda/envs/assembly-stats/bin:/opt/conda/envs/blobtools/bin:/opt/conda/envs/flye/bin:/opt/conda/envs/kraken2/bin:/opt/conda/envs/mummer4/bin:/opt/conda/envs/nanoplot/bin:/opt/conda/envs/quast/bin:/opt/conda/envs/ragtag/bin:/opt/conda/envs/sourmash/bin:/opt/conda/envs/blast/bin:/opt/conda/envs/diamond/bin:/opt/conda/envs/kaiju/bin:/opt/conda/envs/krona/bin:/opt/conda/envs/nanocomp/bin:/opt/conda/envs/porechop/bin:/opt/conda/envs/racon/bin:/opt/conda/envs/raven-assembler/bin:/opt/conda/envs/spades/bin:/opt/conda/envs/checkv/bin:/opt/conda/envs/medaka/bin"
+ENV PATH="${PATH}:/opt/conda/envs/:/opt/conda/envs/assembly-stats/bin:/opt/conda/envs/blobtools/bin:/opt/conda/envs/flye/bin:/opt/conda/envs/mummer4/bin:/opt/conda/envs/nanoplot/bin:/opt/conda/envs/quast/bin:/opt/conda/envs/ragtag/bin:/opt/conda/envs/diamond/bin:/opt/conda/envs/nanocomp/bin:/opt/conda/envs/racon/bin:/opt/conda/envs/raven-assembler/bin:/opt/conda/envs/medaka/bin"
+
 
 #Dedicated install to ONT analyses, unpacked
-RUN mkdir -p /opt/
+#RUN mkdir -p /opt/
 
 ## bwa mem2
-RUN mkdir -p /opt/bwa-mem2
-RUN cd /opt/bwa-mem2 && curl -L https://github.com/bwa-mem2/bwa-mem2/releases/download/v2.0pre2/bwa-mem2-2.0pre2_x64-linux.tar.bz2 | tar jxf -
-RUN ln -s /opt/bwa-mem2/bwa-mem2-2.0pre2_x64-linux/bwa-mem2.avx2 /usr/bin/bwa-mem2
+#RUN mkdir -p /opt/bwa-mem2
+#RUN cd /opt/bwa-mem2 && curl -L https://github.com/bwa-mem2/bwa-mem2/releases/download/v2.0pre2/bwa-mem2-2.0pre2_x64-linux.tar.bz2 | tar jxf -
+#RUN ln -s /opt/bwa-mem2/bwa-mem2-2.0pre2_x64-linux/bwa-mem2.avx2 /usr/bin/bwa-mem2
