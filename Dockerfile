@@ -69,13 +69,13 @@ RUN conda create -n blobtools --no-default-packages
 RUN conda install blobtools -n blobtools
 RUN conda clean --all --yes
 
-RUN conda create -n kraken2 --no-default-packages
-RUN conda install kraken2 -n kraken2
-RUN conda clean --all --yes
+#RUN conda create -n kraken2 --no-default-packages
+#RUN conda install kraken2 -n kraken2
+#RUN conda clean --all --yes
 
-RUN conda create -n porechop --no-default-packages
-RUN conda install porechop -n porechop
-RUN conda clean --all --yes
+#RUN conda create -n porechop --no-default-packages
+#RUN conda install porechop -n porechop
+#RUN conda clean --all --yes
 
 RUN conda create -n diamond --no-default-packages
 RUN conda install diamond -n diamond
