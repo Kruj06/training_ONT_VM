@@ -1,5 +1,5 @@
 # An example of extension of the jupyter stack 'datascience-notebook'
-# with pip modules ('pip install ...') and their system dependancies ('apt-get install -y ...')
+# with pip modules ('pip install ...') and their system dependencies ('apt-get install -y ...')
 FROM jupyter/datascience-notebook
 USER root
 
@@ -25,9 +25,6 @@ RUN python3 -m bash_kernel.install
 #RUN python3 -m pip install medaka
 RUN python3 -m pip install duplex-tools
 RUN python3 -m pip install medaka
-
-
-
 
 RUN conda update --all --yes
 
@@ -72,7 +69,7 @@ RUN conda install python=3.7 quast -n quast
 RUN conda clean --all --yes
 
 RUN conda create -n blobtools --no-default-packages
-RUN conda install blobtools -n blobtools
+RUN conda install blobtools pysam -n blobtools
 RUN conda clean --all --yes
 
 #RUN conda create -n kraken2 --no-default-packages
@@ -86,7 +83,6 @@ RUN conda clean --all --yes
 RUN conda create -n diamond --no-default-packages
 RUN conda install diamond -n diamond
 RUN conda clean --all --yes
-
 
 #RUN conda create -n blast --no-default-packages
 #RUN conda install blast -n blast
@@ -114,12 +110,8 @@ RUN conda clean --all --yes
 
 RUN conda create -n syri_env --no-default-packages
 RUN conda install syri -n syri_env
+RUN conda install plotsr -n syri_env
 RUN conda clean --all --yes
-
-#RUN conda create -n busco --no-default-packages
-#RUN conda install r-plyr -n busco
-#RUN conda install busco -n busco
-#RUN conda clean --all --yes
 
 
 RUN mkdir -p /opt
@@ -135,7 +127,7 @@ RUN wget https://github.com/samtools/samtools/releases/download/1.11/samtools-1.
 
 RUN conda create -n busco --no-default-packages
 RUN conda install r-plyr -n busco
-RUN conda install busco=5.4.7 -n busco
+RUN conda install busco=5.5.0 -n busco
 RUN conda clean --all --yes
 
 
@@ -154,3 +146,4 @@ ENV CPATH="${CPATH}:/opt/conda/envs/busco/include"
 #RUN mkdir -p /opt/bwa-mem2
 #RUN cd /opt/bwa-mem2 && curl -L https://github.com/bwa-mem2/bwa-mem2/releases/download/v2.0pre2/bwa-mem2-2.0pre2_x64-linux.tar.bz2 | tar jxf -
 #RUN ln -s /opt/bwa-mem2/bwa-mem2-2.0pre2_x64-linux/bwa-mem2.avx2 /usr/bin/bwa-mem2
+
